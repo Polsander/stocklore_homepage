@@ -1,0 +1,225 @@
+@import "tailwindcss";
+
+/* Static theme values (fonts). Colors live in :root below and are bridged
+   into utilities via @theme inline. */
+@theme {
+  --font-sans: "Rubik Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-heading: "Bricolage Grotesque Variable", "Rubik Variable", ui-sans-serif, system-ui, sans-serif;
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 2px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-lightest: var(--lightest);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-destructive: var(--destructive);
+  --color-primary-strong: var(--primary-strong);
+  --color-brand: var(--brand-text);
+}
+
+/* ---------------------------------------------------------------------------
+   Design tokens — the standalone pastel/cream marketing palette.
+   Light-only by decision (2026-07-14): the site diverged from the app's
+   token values (the app keeps #6268FF on warm paper; this palette lifts the
+   same periwinkle family into creamy pastels, summate.io-style).
+
+   Contrast discipline: pastel FILLS always pair with a dark ink token —
+   every pair below was numerically verified ≥ 4.5:1 (most ≥ 6:1).
+--------------------------------------------------------------------------- */
+:root {
+  color-scheme: light;
+  --radius: 0.625rem; /* 10px base drives the whole radius scale */
+
+  /* Creamy surfaces + warm ink */
+  --background: #faf6ed;
+  --foreground: #3d3a2f;
+  --card: #fffdf7;
+  --card-foreground: #3d3a2f;
+
+  /* The periwinkle family, pastel-tinted.
+     --primary        soft periwinkle for borders/washes/decor (never text-bearing)
+     --primary-strong the pastel CTA/chip FILL
+     --primary-foreground the deep-indigo INK on those fills (7.1:1)
+     --brand-text     the periwinkle used AS TEXT on cream/card/muted (≥ 5.2:1) */
+  --primary: #a5a9ff;
+  --primary-strong: #bfc3ff;
+  --primary-foreground: #252a86;
+  --brand-text: #4a50dc;
+  --secondary: #c7caff;
+  --lightest: #e9ebff;
+
+  --muted: #f3eee1;
+  --muted-foreground: #736c59;
+  --accent: #f0e9d8;
+  --accent-foreground: #454136;
+  --destructive: #b3261e;
+  --border: #e8e1cf;
+  --input: #dcd3bc;
+  --ring: #8f94ff;
+  --success: #1f7a3d;
+
+  /* Soft layered "card on a desk" shadows — warm-black based, no color glow */
+  --shadow-soft: 0 1px 2px rgb(74 62 40 / 0.05), 0 4px 14px -4px rgb(74 62 40 / 0.08);
+  --shadow-lifted: 0 2px 4px rgb(74 62 40 / 0.05), 0 14px 30px -12px rgb(74 62 40 / 0.16);
+
+  /* The pastel accent set — cheerful fills, each with its own AA ink. */
+  --pastel-peri: #e2e4ff;
+  --pastel-peri-ink: #333aa8;
+  --pastel-mint: #d9f2e0;
+  --pastel-mint-ink: #175230;
+  --pastel-peach: #ffe4d1;
+  --pastel-peach-ink: #7d3a17;
+  --pastel-butter: #fbeec9;
+  --pastel-butter-ink: #6e4d12;
+
+  /* Status badges ride the pastel set */
+  --badge-live-bg: var(--pastel-mint);
+  --badge-live-fg: var(--pastel-mint-ink);
+  --badge-progress-bg: var(--pastel-peach);
+  --badge-progress-fg: var(--pastel-peach-ink);
+  --badge-planned-bg: var(--pastel-peri);
+  --badge-planned-fg: var(--pastel-peri-ink);
+  --badge-vision-bg: var(--pastel-butter);
+  --badge-vision-fg: var(--pastel-butter-ink);
+}
+
+/* Theme-aware shadow utilities (runtime vars can't live in @theme) */
+@utility shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+@utility shadow-lifted {
+  box-shadow: var(--shadow-lifted);
+}
+/* Horizontal padding that respects notched-phone safe areas */
+@utility safe-x {
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+}
+
+/* ---------------------------------------------------------------------------
+   Atmosphere & motion — softened for the flatter, airier summate-style look
+   (film grain removed; the aurora survives as a faint pastel wash).
+--------------------------------------------------------------------------- */
+
+/* Faint pastel gradient wash — scoped inside a relative container. */
+@utility sl-aurora {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(55% 50% at 15% 8%, color-mix(in oklab, var(--primary) 13%, transparent), transparent 70%),
+    radial-gradient(48% 48% at 88% 18%, color-mix(in oklab, var(--pastel-peach) 45%, transparent), transparent 72%),
+    radial-gradient(60% 55% at 82% 92%, color-mix(in oklab, var(--pastel-mint) 40%, transparent), transparent 72%),
+    radial-gradient(45% 45% at 8% 88%, color-mix(in oklab, var(--lightest) 45%, transparent), transparent 70%);
+}
+
+/* Staggered entrance — the orchestrated page-load moment (hero only). */
+@utility sl-animate-in {
+  opacity: 0;
+  animation: sl-fade-up 620ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+@keyframes sl-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* The signature periwinkle "scan stripe" highlight. */
+@utility sl-scan-mark {
+  background-color: color-mix(in oklab, var(--primary) 26%, transparent);
+  color: var(--brand-text);
+  border-radius: var(--radius-sm);
+  padding: 0 0.12em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Gentle scroll reveals (summate-style). JS stamps `js-reveal` on <html> and
+   `sl-reveal` on sections, so content is NEVER hidden without JS; sections
+   fade/rise in as they enter the viewport. The global reduced-motion
+   kill-switch collapses the transition. */
+html.js-reveal .sl-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 650ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 650ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+html.js-reveal .sl-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    font-optical-sizing: auto;
+    text-wrap: balance;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: var(--lightest);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
