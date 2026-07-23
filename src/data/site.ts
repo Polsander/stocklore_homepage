@@ -5,6 +5,6 @@ export const SITE = {
   portalUrl: "https://portal.stocklore.app",
   supportEmail: "support@stocklore.app",
   description:
-    "Track stock, build multi-level assemblies, manage purchase orders, and send CRA-ready invoices — one simple tool for Canadian product businesses. Free during open beta, with a human-approved AI assistant in development.",
+    "See and manage your whole product business — inventory, purchasing, sales, and CRA-ready invoicing in one tool for Canadian small business, with multi-level manufacturing when an order needs assembly. Free during open beta, with a human-approved AI assistant in development.",
   ogImage: "/og.png",
 } as const;

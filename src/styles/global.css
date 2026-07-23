@@ -1,10 +1,13 @@
 @import "tailwindcss";
 
 /* Static theme values (fonts). Colors live in :root below and are bridged
-   into utilities via @theme inline. */
+   into utilities via @theme inline.
+   The whole site is unified on Roboto — both tokens resolve to the same
+   family, so the `font-heading` utility keeps working (headings stay bold)
+   while every surface renders one typeface. */
 @theme {
-  --font-sans: "Rubik Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-heading: "Bricolage Grotesque Variable", "Rubik Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Roboto Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-heading: "Roboto Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 }
 
 @theme inline {
