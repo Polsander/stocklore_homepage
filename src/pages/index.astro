@@ -9,8 +9,6 @@ import GettingStarted from "../components/sections/GettingStarted.astro";
 import WhyStocklore from "../components/sections/WhyStocklore.astro";
 import BetaPricing from "../components/sections/BetaPricing.astro";
 import AgentFirst from "../components/sections/AgentFirst.astro";
-import FounderNote from "../components/sections/FounderNote.astro";
-import BuildingInTheOpen from "../components/sections/BuildingInTheOpen.astro";
 import Faq from "../components/sections/Faq.astro";
 import CtaBand from "../components/sections/CtaBand.astro";
 import { SITE } from "../data/site";
@@ -34,7 +32,7 @@ const softwareApplicationJsonLd = {
 ---
 
 <BaseLayout
-  title="Stocklore — Inventory & Manufacturing Software for Canadian Small Business"
+  title="Stocklore — Inventory, Operations & Business Management for Canadian Small Business"
   description={SITE.description}
   jsonLd={[softwareApplicationJsonLd, faqJsonLd()]}
 >
@@ -47,8 +45,6 @@ const softwareApplicationJsonLd = {
   <WhyStocklore />
   <BetaPricing />
   <AgentFirst />
-  <BuildingInTheOpen />
-  <FounderNote />
   <Faq />
   <CtaBand />
 </BaseLayout>
