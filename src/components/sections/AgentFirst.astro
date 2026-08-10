@@ -1,7 +1,6 @@
 ---
 /**
  * The agent-first announcement — Stocklore's stated direction, advertised
- * prominently and badged honestly (In development; nothing here is live yet).
  */
 import Badge from "../ui/Badge.astro";
 import ChatMock from "./ChatMock.astro";
@@ -28,21 +27,20 @@ const PRINCIPLES = [
   <div class="relative z-10 mx-auto w-full max-w-6xl">
     <div class="mx-auto max-w-2xl text-center">
       <div class="flex items-center justify-center gap-3">
-        <p class="text-xs font-semibold uppercase tracking-widest text-brand">The next chapter</p>
-        <Badge status="vision" />
+        <p class="text-xs font-semibold uppercase tracking-widest text-brand">Stocklore A.I.</p>
+        <Badge status="live" />
       </div>
       <h2 class="mt-3 font-heading text-3xl font-bold tracking-tight sm:text-4xl">
-        Stocklore is becoming an <span class="sl-scan-mark">agent-first</span> platform
+        Stocklore is an <span class="sl-scan-mark">agent-first</span> platform
       </h2>
       <p class="mt-4 text-lg text-muted-foreground">
-        In development and shipping in phases: an assistant that runs your back office from plain language — with you approving every action before it happens.
+        You get an assistant that runs your back office from plain language, with you approving every action before it happens.
       </p>
     </div>
 
     <div class="mt-12 grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
       <div class="rounded-lg border border-primary/40 bg-card p-6 shadow-lifted sm:p-8">
         <ChatMock />
-        <p class="mt-5 text-xs text-muted-foreground">Illustrative — the assistant is in development, not live yet.</p>
       </div>
 
       <div>
@@ -67,9 +65,6 @@ const PRINCIPLES = [
         <p class="mt-7 rounded-md border border-border bg-card px-4 py-3 text-sm text-muted-foreground">
           <strong class="text-foreground">Shipping in phases:</strong> answers about your own data → drafted documents with approval → outbound email → more channels.
         </p>
-
-        <a href="/roadmap#assistant" class="mt-6 inline-flex min-h-11 items-center gap-1 font-medium text-brand hover:underline">
-          Follow progress on the roadmap <span aria-hidden="true">→</span>
         </a>
       </div>
     </div>

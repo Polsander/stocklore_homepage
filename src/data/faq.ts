@@ -18,7 +18,7 @@ export const FAQ: FaqItem[] = [
   {
     question: "Is there an AI assistant?",
     answer:
-      "It's in development — and it's where Stocklore is headed as an agent-first platform. The Stocklore assistant will let you run your back office in plain language — \"draft an invoice for Andrea's Flowers and email her the PDF\" — while you approve every action before it happens. It works within your role and permissions, and ships in phases, starting with answers about your own data. Follow progress on the updates & roadmap page.",
+      "Yes! Stocklore is headed as an agent-first platform. The Stocklore assistant will let you run your back office in plain language — \"draft an invoice for Andrea's Flowers and email her the PDF\" — while you approve every action before it happens. It works within your role and permissions, and ships in phases, starting with answers about your own data.",
   },
   {
     question: "How much does it cost?",
@@ -43,7 +43,7 @@ export const FAQ: FaqItem[] = [
   {
     question: "Can I see what's new, or request a feature?",
     answer:
-      "Yes — the updates & roadmap page lists what's new each month and what's planned ahead. If something you need is missing, tell us at support@stocklore.app; requests from beta users genuinely shape the plan.",
+      "Yes! While we are currently working on a roadmap to show users what some upcoming new features are, if something you need is missing, tell us at support@stocklore.app. Requests from beta users genuinely shape the plan.",
   },
 ];
 

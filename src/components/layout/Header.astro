@@ -4,9 +4,6 @@ import Logo from "./Logo.astro";
 import Button from "../ui/Button.astro";
 
 const NAV = [
-  { href: "/features", label: "Features" },
-  { href: "/#assistant", label: "AI Assistant", soon: true },
-  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -22,7 +19,7 @@ const isActive = (href: string) => path === href;
 
     <nav class="hidden items-center justify-center gap-1 lg:flex" aria-label="Main">
       {
-        NAV.map(({ href, label, soon }) => (
+        NAV.map(({ href, label }) => (
           <a
             href={href}
             aria-current={isActive(href) ? "page" : undefined}
@@ -32,14 +29,6 @@ const isActive = (href: string) => path === href;
             ]}
           >
             {label}
-            {soon && (
-              <span
-                class="rounded-sm px-1 py-px text-[9px] font-semibold uppercase tracking-wide"
-                style="background: var(--badge-vision-bg); color: var(--badge-vision-fg);"
-              >
-                Soon
-              </span>
-            )}
           </a>
         ))
       }
@@ -86,21 +75,13 @@ const isActive = (href: string) => path === href;
   <div id="mobile-menu" hidden class="border-t border-border lg:hidden">
     <nav class="mx-auto flex w-full max-w-6xl flex-col gap-1 py-3" aria-label="Mobile">
       {
-        NAV.map(({ href, label, soon }) => (
+        NAV.map(({ href, label }) => (
           <a
             href={href}
             aria-current={isActive(href) ? "page" : undefined}
             class="flex min-h-11 items-center gap-1.5 rounded-md px-3 text-base font-medium text-foreground hover:bg-muted"
           >
             {label}
-            {soon && (
-              <span
-                class="rounded-sm px-1 py-px text-[9px] font-semibold uppercase tracking-wide"
-                style="background: var(--badge-vision-bg); color: var(--badge-vision-fg);"
-              >
-                Soon
-              </span>
-            )}
           </a>
         ))
       }
