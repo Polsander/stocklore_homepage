@@ -7,16 +7,8 @@ const year = new Date().getFullYear();
 
 const COLUMNS = [
   {
-    title: "Product",
-    links: [
-      { href: "/features", label: "Features" },
-      { href: "/#faq", label: "FAQ" },
-    ],
-  },
-  {
     title: "Company",
     links: [
-      { href: "/about", label: "About" },
       { href: "/contact", label: "Contact" },
       { href: "/email", label: "Email updates" },
     ],
@@ -36,13 +28,8 @@ const COLUMNS = [
     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-5">
       <div class="lg:col-span-2">
         <Logo />
-        <p class="mt-4 max-w-xs text-sm text-muted-foreground">
-          See and run your whole product business — inventory, purchasing, sales, and CRA-ready invoicing in one simple tool, with manufacturing when you need
-          it.
-        </p>
         <p class="mt-4 flex items-center gap-2 text-sm text-muted-foreground">
-          <CanadianFlag />
-          Proudly Canadian-owned
+          <CanadianFlag /> Made in Canada
         </p>
       </div>
 
