@@ -290,7 +290,7 @@ export const ROADMAP: RoadmapItem[] = [
   { id: "public-api", title: "Public REST API v1", blurb: "Your data, programmable.", status: "planned", area: "platform" },
   {
     id: "ai-assistant",
-    title: "The Stocklore assistant",
+    title: "The Stocklore A.I. business manager",
     blurb:
       "Describe the work — “draft an invoice for Andrea’s Flowers with four flower kits” — review what it prepared, approve, done. Human-approved, always.",
     status: "vision",
