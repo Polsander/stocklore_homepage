@@ -3,10 +3,14 @@
  * indexed text; themes preserved deliberately for SEO continuity).
  * Rendered as native <details> accordions + FAQPage JSON-LD.
  */
+import { SITE } from "./site";
 
 export interface FaqItem {
   question: string;
+  /** Plain text — the JSON-LD reuses it verbatim, so it must read complete without the link. */
   answer: string;
+  /** Rendered after the answer on the page only; never part of the JSON-LD text. */
+  link?: { href: string; label: string };
 }
 
 export const FAQ: FaqItem[] = [
@@ -18,7 +22,7 @@ export const FAQ: FaqItem[] = [
   {
     question: "Is there an AI assistant?",
     answer:
-      "Yes! Stocklore is headed as an agent-first platform. The Stocklore assistant will let you run your back office in plain language — \"draft an invoice for Andrea's Flowers and email her the PDF\" — while you approve every action before it happens. It works within your role and permissions, and ships in phases, starting with answers about your own data.",
+      'Yes! Stocklore is headed as an agent-first platform. The Stocklore assistant will let you run your back office in plain language — "draft an invoice for Andrea\'s Flowers and email her the PDF" — while you approve every action before it happens. It works within your role and permissions, and ships in phases, starting with answers about your own data.',
   },
   {
     question: "How much does it cost?",
@@ -37,13 +41,14 @@ export const FAQ: FaqItem[] = [
   },
   {
     question: "How is my data handled? What about privacy?",
+    // A summary of the portal's Privacy Policy — it may not promise more, or less, than the policy does.
     answer:
-      "We collect your email address to create your account and a cookie to keep you signed in — that's it. We don't sell data to third parties, and your business data belongs to you. Stocklore is built and operated by a Canadian team.",
+      "We keep your account details (name, email and a hashed password), the data your organization enters or uploads, your conversations with the AI assistant, and technical logs. Our servers and primary database are in Toronto, Canada. Assistant requests go to the AI provider your organization has chosen — Anthropic, DeepSeek, or a model your organization hosts itself — and a third-party provider may process them outside Canada. Logs are kept for up to 90 days, and when you delete your account, your personal information is deleted or anonymised within 30 days unless the law requires us to keep it. We don't sell personal information or use it for advertising, and we don't use your workspace data to train AI models.",
+    link: { href: SITE.privacyUrl, label: "Read the Privacy Policy" },
   },
   {
     question: "Can I see what's new, or request a feature?",
-    answer:
-      "Yes! While we are currently working on a roadmap to show users what some upcoming new features are, if something you need is missing, tell us at support@stocklore.app. Requests from beta users genuinely shape the plan.",
+    answer: `Yes! While we are currently working on a roadmap to show users what some upcoming new features are, if something you need is missing, tell us at ${SITE.supportEmail}. Requests from beta users genuinely shape the plan.`,
   },
 ];
 
