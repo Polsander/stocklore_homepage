@@ -18,6 +18,14 @@
 > note). Pastel fills always pair with numerically-verified AA ink tokens; the gate now runs
 > light-only (105 checks).
 >
+> **Amendment 3 (2026-10-30, portal hand-off):** the portal's signed-out screens shipped with no
+> marketing in them, so this site now hands each visitor to the right one instead of pointing
+> every call to action at the portal root (which is sign-in): "Sign in" → `/`, "Get started" →
+> `/register`, and the hero and CTA band carry an email-first sign-up box — a native GET form
+> to `/register?email=…`. The footer links the portal's Terms and Privacy Policy (never
+> copied here), the FAQ's privacy answer summarizes the published policy, and the logo is the
+> portal's mark, byte for byte. The gate guards all of it (README › _The portal hand-off_).
+>
 > **Sources of truth used:** this repo (verified against the live `https://stocklore.app` —
 > content matches); `open_ims` → `docs/roadmap/MASTER_PLAN.md`, `docs/competitive-research/*`
 > (27-competitor study, inFlow head-to-head, "what to ship next" ranking), the app's design

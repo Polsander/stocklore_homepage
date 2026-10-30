@@ -37,23 +37,49 @@ npm run build
 CHROMIUM_PATH=/path/to/chromium npm run check:site   # omit CHROMIUM_PATH to use Playwright's own browser
 ```
 
-The gate (`scripts/site-check.mjs`) walks every page × light/dark × a 13-device matrix
+The gate (`scripts/site-check.mjs`) walks every page × a 13-device matrix
 (iPhone SE → Pro Max, Pixel, Galaxy, tablets, a 320 px reflow floor, landscape) asserting
 **zero horizontal overflow**, and runs **axe-core** on a desktop + phone subset asserting
-**zero serious/critical violations**. Set `SCREENSHOT_DIR=…` to also capture review
-screenshots.
+**zero serious/critical violations**. It also guards the **portal hand-off** (below): every
+link into `portal.stocklore.app` is one of its signed-out screens (and a "Sign in" / "Get
+started" link the right one), every sign-up form is a plain `GET` to `/register` with one
+field, `email` — submitted for real against a stub, so a `+` must arrive as `%2B` — and
+`/favicon.svg` is a byte-for-byte copy of the portal's mark. Set `SCREENSHOT_DIR=…` to also
+capture review screenshots.
 
 ## Content model
 
 | File                   | Drives                                                                                                                                                                                                             |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `src/data/site.ts`     | Site-wide constants (portal URL, support email, default meta)                                                                                                                                                      |
+| `src/data/site.ts`     | Site-wide constants (every portal URL — see _The portal hand-off_ — support email, default meta)                                                                                                                   |
 | `src/data/roadmap.ts`  | The **building-in-the-open** roadmap — landing teaser + `/roadmap`. Shipping a feature = add/flip one entry and push; statuses are `shipped` / `in-progress` / `planned` / `vision` and render with honest badges. |
 | `src/data/features.ts` | `/features` page — every item badged `live` / `in-progress` / `planned`                                                                                                                                            |
 | `src/data/faq.ts`      | FAQ accordions + `FAQPage` JSON-LD                                                                                                                                                                                 |
 
 **Honesty rule:** `shipped`/`live` means in production today. Everything else keeps its badge —
 never present unshipped features (including AI) as live.
+
+## The portal hand-off
+
+The portal's signed-out screens carry no marketing; the product story lives here, and every
+call to action hands the visitor to one of them. The URLs are a fixed contract, derived in
+`src/data/site.ts` from `SITE.portalUrl` — no component writes one by hand:
+
+| Constant         | Screen                                                                         |
+| ---------------- | ------------------------------------------------------------------------------ |
+| `signInUrl`      | `/` — sign-in is the root; there is no `/login`                                |
+| `registerUrl`    | `/register` — sign-up step 1, asks for a work email                            |
+| `registerUrlFor` | `/register?email=…` — step 2 with the address filled in; empty → `registerUrl` |
+| `termsUrl`       | `/terms` — the canonical Terms of Service; linked, never copied here           |
+| `privacyUrl`     | `/privacy` — the canonical Privacy Policy; linked, never copied here           |
+
+The email-first sign-up box (`SignupEmailForm.astro`, in the hero and the CTA band) is a
+native `<form method="get">` to `registerUrl` with one field, `email`, so the browser does
+the URL-encoding and it works with JavaScript off. Script must never block or rewrite its
+submit; anything that builds the link itself goes through `registerUrlFor`, never string
+concatenation. The hand-off is a top-level navigation and nothing more: no POST to the
+portal, no portal cookies, no name or password collected here, and no `?redirect=`. It is
+not the product-updates list (`EmailCapture.astro`, which posts to `/api/email`).
 
 ## SEO
 
