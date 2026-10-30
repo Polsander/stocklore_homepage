@@ -16,8 +16,16 @@ const COLUMNS = [
   {
     title: "Get started",
     links: [
-      { href: SITE.portalUrl, label: "Open the app" },
-      { href: SITE.portalUrl, label: "Create a free account" },
+      { href: SITE.signInUrl, label: "Open the app" },
+      { href: SITE.registerUrl, label: "Create a free account" },
+    ],
+  },
+  {
+    // The portal hosts the one canonical copy of each; never mirror their text here.
+    title: "Legal",
+    links: [
+      { href: SITE.termsUrl, label: "Terms of Service" },
+      { href: SITE.privacyUrl, label: "Privacy Policy" },
     ],
   },
 ];
