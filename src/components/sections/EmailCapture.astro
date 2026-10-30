@@ -47,6 +47,8 @@ const { compact = false, class: className = "" } = Astro.props;
 </form>
 
 <script>
+  import { SITE } from "../../data/site";
+
   document.querySelectorAll<HTMLFormElement>("[data-email-form]").forEach((form) => {
     const status = form.querySelector<HTMLElement>("[data-email-status]")!;
     const button = form.querySelector<HTMLButtonElement>("button[type=submit]")!;
@@ -64,7 +66,7 @@ const { compact = false, class: className = "" } = Astro.props;
         status.textContent = "Thanks — you're on the list!";
         form.reset();
       } catch {
-        status.textContent = "Something went wrong — please try again or email support@stocklore.app.";
+        status.textContent = `Something went wrong — please try again or email ${SITE.supportEmail}.`;
       } finally {
         button.disabled = false;
       }
