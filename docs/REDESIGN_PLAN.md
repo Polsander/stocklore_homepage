@@ -26,6 +26,14 @@
 > copied here), the FAQ's privacy answer summarizes the published policy, and the logo is the
 > portal's mark, byte for byte. The gate guards all of it (README › _The portal hand-off_).
 >
+> **Amendment 4 (2026-10-31, copy refreshed against the product):** every status in `roadmap.ts`
+> and `features.ts`, and every capability claim in the landing copy, was re-checked against
+> open_ims `main`. The assistant is live, and so are sales orders, quotes, partial shipping and
+> receiving, kits, the valuation/aging reports and the public API (beta). Two claims marked live in
+> §8 below were withdrawn because the product removed them in September: build orders created
+> automatically from a confirmed sale, and nested manufacturing-order trees — builds are now their
+> own documents, linked by hand. Bookkeeping appears as in progress / planned.
+>
 > **Sources of truth used:** this repo (verified against the live `https://stocklore.app` —
 > content matches); `open_ims` → `docs/roadmap/MASTER_PLAN.md`, `docs/competitive-research/*`
 > (27-competitor study, inFlow head-to-head, "what to ship next" ranking), the app's design
