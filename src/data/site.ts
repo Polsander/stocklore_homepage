@@ -20,7 +20,7 @@ export const SITE = {
   privacyUrl: portalPage("/privacy"),
   supportEmail: "support@stocklore.app",
   description:
-    "See and manage your whole product business — inventory, purchasing, sales, and CRA-ready invoicing in one tool for Canadian small business, with multi-level manufacturing when an order needs assembly. Free during open beta, with a human-approved AI assistant in development.",
+    "See and manage your whole product business — inventory, purchasing, sales, and CRA-ready invoicing in one tool for Canadian small business, with multi-level manufacturing and an AI assistant that drafts the work for your approval. Free during open beta.",
   ogImage: "/og.png",
 } as const;
 

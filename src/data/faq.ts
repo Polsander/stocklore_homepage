@@ -17,12 +17,12 @@ export const FAQ: FaqItem[] = [
   {
     question: "What makes Stocklore different from other inventory software?",
     answer:
-      "Most tools at our price point stop at single-level kits — Stocklore does real manufacturing: multi-level bills of materials, nested build orders, and automatic component consumption, alongside ledger-backed inventory, purchasing, and CRA-ready invoicing. And it's self-serve: no sales calls, no implementation projects, no per-module upsells. You can be working with your own data the same hour you sign up.",
+      "Most tools at our price point stop at single-level kits — Stocklore does real manufacturing: bills of materials up to six levels deep and build orders that consume components and produce the finished good, alongside ledger-backed inventory, quotes and sales orders, purchasing, and CRA-ready invoicing — with an AI assistant built in, not bolted on. And it's self-serve: no sales calls, no implementation projects, no per-module upsells. You can be working with your own data the same hour you sign up.",
   },
   {
     question: "Is there an AI assistant?",
     answer:
-      'Yes! Stocklore is headed as an agent-first platform. The Stocklore assistant will let you run your back office in plain language — "draft an invoice for Andrea\'s Flowers and email her the PDF" — while you approve every action before it happens. It works within your role and permissions, and ships in phases, starting with answers about your own data.',
+      "Yes, and it's live. Ask it about your business in plain language — what's running low, which invoices are overdue, how last month's sales went — and ask it to do the work: it drafts invoices, orders, stock adjustments and more, shows you every field it would change, and nothing happens until you approve. It works within your role and permissions, can search the web, builds custom dashboards, and can email an invoice to your customer once you confirm.",
   },
   {
     question: "How much does it cost?",
@@ -32,12 +32,12 @@ export const FAQ: FaqItem[] = [
   {
     question: "How do I get started?",
     answer:
-      "Click Get started, create a free account, and you're in. You can seed a demo company with realistic data to explore, or import your own products and contacts from CSV or Excel and start invoicing right away.",
+      "Enter your email, create your free account, and you're in. Explore a fully stocked demo company first (it deletes itself after 15 days), or bring in your own products, contacts and documents from a spreadsheet — or from a PDF or photo, which AI turns into a draft for you to check.",
   },
   {
     question: "Does Stocklore work on mobile?",
     answer:
-      "Stocklore runs in any modern browser. The app is optimized for desktop and laptop screens today — that's where inventory work mostly happens — and a dedicated mobile experience is on the roadmap.",
+      "Stocklore runs in any modern browser, and you can install it as an app. Lists, records and navigation adapt to a phone; for editing long documents and working with the assistant, a larger screen is still best. There's no native mobile app yet.",
   },
   {
     question: "How is my data handled? What about privacy?",
@@ -48,7 +48,8 @@ export const FAQ: FaqItem[] = [
   },
   {
     question: "Can I see what's new, or request a feature?",
-    answer: `Yes! While we are currently working on a roadmap to show users what some upcoming new features are, if something you need is missing, tell us at ${SITE.supportEmail}. Requests from beta users genuinely shape the plan.`,
+    answer: `Yes — the Updates & Roadmap page shows what shipped each month and what we're building next. If something you need is missing, tell us at ${SITE.supportEmail}. Requests from beta users genuinely shape the plan.`,
+    link: { href: "/roadmap", label: "See what's new" },
   },
 ];
 
