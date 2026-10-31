@@ -2,8 +2,11 @@
 /**
  * Email-list capture — posts to the existing /api/email endpoint
  * (Google-Sheets backed). Progressive enhancement: without JS it's a normal
- * form POST; with JS it submits via fetch and announces the result.
+ * form POST; with JS it submits via fetch and announces the result. The
+ * portal's Privacy Policy covers the list, so every copy of the form says so.
  */
+import { SITE } from "../../data/site";
+
 interface Props {
   /** Compact = single-row layout for CTA bands. */
   compact?: boolean;
@@ -44,6 +47,9 @@ const { compact = false, class: className = "" } = Astro.props;
     </button>
   </div>
   <p data-email-status aria-live="polite" class="mt-2 min-h-5 text-sm text-muted-foreground"></p>
+  <p class="text-xs text-muted-foreground">
+    Product updates only — leave any time. <a href={SITE.privacyUrl} class="font-medium text-brand hover:underline">Privacy Policy</a>
+  </p>
 </form>
 
 <script>
