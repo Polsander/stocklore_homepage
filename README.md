@@ -21,13 +21,14 @@ Pastel fills always pair with WCAG-AA-verified ink tokens (see `src/styles/globa
 
 ## Commands
 
-| Command                | Action                                                                                    |
-| ---------------------- | ----------------------------------------------------------------------------------------- |
-| `npm install`          | Install dependencies                                                                      |
-| `npm run dev`          | Dev server at `localhost:4321`                                                            |
-| `npm run build`        | Production build to `dist/`                                                               |
-| `npm run check:site`   | **The merge gate** — device-matrix overflow + axe-core a11y checks against a served build |
-| `npm run format:write` | Prettier                                                                                  |
+| Command                | Action                                                                                       |
+| ---------------------- | -------------------------------------------------------------------------------------------- |
+| `npm install`          | Install dependencies                                                                         |
+| `npm run dev`          | Dev server at `localhost:4321`                                                               |
+| `npm run build`        | Production build to `dist/`                                                                  |
+| `npm run check:site`   | **The merge gate** — device-matrix overflow + axe-core a11y checks against a served build    |
+| `npm run og:image`     | Re-render the social card `public/og.png` from a served build (headline = the hero's `<h1>`) |
+| `npm run format:write` | Prettier                                                                                     |
 
 ### Running the validation gate
 
