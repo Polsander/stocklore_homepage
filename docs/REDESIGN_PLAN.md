@@ -18,6 +18,22 @@
 > note). Pastel fills always pair with numerically-verified AA ink tokens; the gate now runs
 > light-only (105 checks).
 >
+> **Amendment 3 (2026-10-30, portal hand-off):** the portal's signed-out screens shipped with no
+> marketing in them, so this site now hands each visitor to the right one instead of pointing
+> every call to action at the portal root (which is sign-in): "Sign in" → `/`, "Get started" →
+> `/register`, and the hero and CTA band carry an email-first sign-up box — a native GET form
+> to `/register?email=…`. The footer links the portal's Terms and Privacy Policy (never
+> copied here), the FAQ's privacy answer summarizes the published policy, and the logo is the
+> portal's mark, byte for byte. The gate guards all of it (README › _The portal hand-off_).
+>
+> **Amendment 4 (2026-10-31, copy refreshed against the product):** every status in `roadmap.ts`
+> and `features.ts`, and every capability claim in the landing copy, was re-checked against
+> open_ims `main`. The assistant is live, and so are sales orders, quotes, partial shipping and
+> receiving, kits, the valuation/aging reports and the public API (beta). Two claims marked live in
+> §8 below were withdrawn because the product removed them in September: build orders created
+> automatically from a confirmed sale, and nested manufacturing-order trees — builds are now their
+> own documents, linked by hand. Bookkeeping appears as in progress / planned.
+>
 > **Sources of truth used:** this repo (verified against the live `https://stocklore.app` —
 > content matches); `open_ims` → `docs/roadmap/MASTER_PLAN.md`, `docs/competitive-research/*`
 > (27-competitor study, inFlow head-to-head, "what to ship next" ranking), the app's design
@@ -452,7 +468,7 @@ feedback rather than waiting for the end. Estimated end-to-end: one focused sess
 | Purple→fuchsia gradient + "shiny" CTA, stone-700 dark-only theme                                                               | Off-brand vs the app's warm system (no colored glows rule)                                                                                                              | None — visual only                                         |
 | Empty `/blog` page                                                                                                             | Thin content; 301 keeps equity and the "updates" intent lands on `/roadmap`                                                                                             | Q4                                                         |
 | 4 legacy PNGs, DarkCard/DropDown/old Button/SpinnerLoader, MainLayout, SCSS colors, Roboto, `@google-cloud/local-auth`, `sass` | Superseded by the new system; local-auth was never imported                                                                                                             | None                                                       |
-| "Stocklore 2025 ©"                                                                                                            | Stale                                                                                                                                                                   | Becomes dynamic year                                       |
+| "Stocklore 2025 ©"                                                                                                             | Stale                                                                                                                                                                   | Becomes dynamic year                                       |
 
 ## 13. Launch checklist (Netlify repoint) & rollback
 

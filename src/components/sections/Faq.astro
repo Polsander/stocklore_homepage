@@ -9,7 +9,7 @@ import { FAQ } from "../../data/faq";
 
     <div class="mt-10 divide-y divide-border rounded-lg border border-border bg-card shadow-soft">
       {
-        FAQ.map(({ question, answer }) => (
+        FAQ.map(({ question, answer, link }) => (
           <details class="group px-5">
             <summary class="flex min-h-14 cursor-pointer list-none items-center justify-between gap-4 py-4 font-medium [&::-webkit-details-marker]:hidden">
               {question}
@@ -26,7 +26,17 @@ import { FAQ } from "../../data/faq";
                 <path d="M6 9l6 6 6-6" />
               </svg>
             </summary>
-            <p class="pb-5 text-sm leading-relaxed text-muted-foreground">{answer}</p>
+            <p class="pb-5 text-sm leading-relaxed text-muted-foreground">
+              {answer}
+              {link && (
+                <>
+                  {" "}
+                  <a href={link.href} class="font-medium text-brand hover:underline">
+                    {link.label}
+                  </a>
+                </>
+              )}
+            </p>
           </details>
         ))
       }

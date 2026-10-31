@@ -1,6 +1,7 @@
 ---
 /**
- * The agent-first announcement — Stocklore's stated direction, advertised
+ * The assistant — live. Every claim here is something it does today (open_ims
+ * docs/architecture/agent.md); anything not shipped belongs under "Next".
  */
 import Badge from "../ui/Badge.astro";
 import ChatMock from "./ChatMock.astro";
@@ -8,7 +9,7 @@ import ChatMock from "./ChatMock.astro";
 const PRINCIPLES = [
   {
     title: "You approve everything",
-    copy: "Nothing executes on its own. The assistant drafts invoices, orders, and emails — you review the exact result and approve it before anything happens.",
+    copy: "Nothing executes on its own. The assistant drafts invoices, orders, stock adjustments and more — each card shows every field it would change, and nothing happens until you approve.",
   },
   {
     title: "Your permissions, enforced",
@@ -63,9 +64,9 @@ const PRINCIPLES = [
         </ul>
 
         <p class="mt-7 rounded-md border border-border bg-card px-4 py-3 text-sm text-muted-foreground">
-          <strong class="text-foreground">Shipping in phases:</strong> answers about your own data → drafted documents with approval → outbound email → more channels.
+          <strong class="text-foreground">Live today:</strong> answers from your own data, drafted changes you approve, invoice emails, web search and custom dashboards.
+          <strong class="text-foreground">Next:</strong> files in and out of the chat.
         </p>
-        </a>
       </div>
     </div>
   </div>

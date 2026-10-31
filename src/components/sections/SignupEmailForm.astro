@@ -1,0 +1,39 @@
+---
+/**
+ * The email-first sign-up box. A plain GET form to the portal's /register:
+ * its one field, `email`, becomes `?email=…`, and the portal opens on step 2
+ * ("Finish creating your account") with the address filled in — or back on
+ * step 1 with an error to fix if it doesn't validate.
+ *
+ * Keep it a native form with no script. The browser URL-encodes the address
+ * (`+` must arrive as %2B, or jordan+test@… decodes to "jordan test@…"), it
+ * works with JavaScript off, and nothing can block or rewrite the submit. The
+ * label wraps the input, so the box can appear twice on a page with no ids to
+ * keep unique. Not the product-updates list (EmailCapture.astro): different
+ * job, different button — never put the two side by side.
+ */
+import { SITE } from "../../data/site";
+import Button from "../ui/Button.astro";
+
+interface Props {
+  class?: string;
+}
+const { class: className = "" } = Astro.props;
+---
+
+<form method="get" action={SITE.registerUrl} data-signup-form class:list={["w-full max-w-xl", className]}>
+  <div class="flex flex-col gap-3 sm:flex-row">
+    <label class="min-w-0 flex-1">
+      <span class="sr-only">Work email</span>
+      <input
+        type="email"
+        name="email"
+        autocomplete="email"
+        required
+        placeholder="you@company.com"
+        class="min-h-12 w-full rounded-md border border-input bg-card px-4 text-base text-foreground placeholder:text-muted-foreground"
+      />
+    </label>
+    <Button type="submit" size="lg" class="shrink-0">Get started — it's free</Button>
+  </div>
+</form>

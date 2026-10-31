@@ -3,9 +3,7 @@ import { SITE } from "../../data/site";
 import Logo from "./Logo.astro";
 import Button from "../ui/Button.astro";
 
-const NAV = [
-  { href: "/contact", label: "Contact" },
-];
+const NAV = [{ href: "/contact", label: "Contact" }];
 
 const path = Astro.url.pathname.replace(/\/$/, "") || "/";
 const isActive = (href: string) => path === href;
@@ -36,13 +34,13 @@ const isActive = (href: string) => path === href;
 
     <div class="flex items-center justify-end gap-2">
       <a
-        href={SITE.portalUrl}
+        href={SITE.signInUrl}
         class="hidden min-h-11 items-center rounded-md px-3 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground sm:inline-flex"
       >
         Sign in
       </a>
       <div class="hidden sm:block">
-        <Button href={SITE.portalUrl} size="sm">Get started</Button>
+        <Button href={SITE.registerUrl} size="sm">Get started</Button>
       </div>
 
       <button
@@ -86,8 +84,8 @@ const isActive = (href: string) => path === href;
         ))
       }
       <div class="mt-2 flex flex-col gap-2 border-t border-border pt-3">
-        <a href={SITE.portalUrl} class="flex min-h-11 items-center rounded-md px-3 text-base font-medium text-muted-foreground hover:bg-muted"> Sign in </a>
-        <Button href={SITE.portalUrl} class="mx-3">Get started — it's free</Button>
+        <a href={SITE.signInUrl} class="flex min-h-11 items-center rounded-md px-3 text-base font-medium text-muted-foreground hover:bg-muted"> Sign in </a>
+        <Button href={SITE.registerUrl} class="mx-3">Get started — it's free</Button>
       </div>
     </nav>
   </div>
